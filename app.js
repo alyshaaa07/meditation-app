@@ -1,25 +1,25 @@
 const app = () => {
-    const song = document.querySelector('.song');
-    const play = document.querySelector('.play');
-    const outline = document.querySelector('.moving-outline circle');
-    const video = document.querySelector('.vid-container video');
+    let song = document.querySelector('.song');
+    let play = document.querySelector('.play');
+    let outline = document.querySelector('.moving-outline circle');
+    let video = document.querySelector('.vid-container video');
 
     //sounds
-    const sounds = document.querySelectorAll('.sound-picker button');
+    let sounds = document.querySelectorAll('.sound-picker button');
     //time display
-    const timeDisplay = document.querySelector('.time-display');
-    const timeSelect = document.querySelectorAll('.time-select button');
+    let timeDisplay = document.querySelector('.time-display');
+    let timeSelect = document.querySelectorAll('.time-select button');
     //get length of the outline
-    const outlineLength = outline.getTotalLength();
+    let outlineLength = outline.getTotalLength();
     //duration
-    const fakeDuration = 600;
+    let fakeDuration = 600;
 
     outline.style.strokeDasharray = outlineLength;
     outline.style.strokeDashoffset = outlineLength;
 
     //pick different sounds
     sounds.forEach(sound => {
-      sound.addEventListener('click', () => {
+      sound.addEventListener('click', function() {
         song.src = this.getAttribute('data-sound');
         video.src = this.getAttribute('data-video');
         checkPlaying(song);
@@ -28,13 +28,13 @@ const app = () => {
 
 
     //play sound
-    play.addEventListener("click", () => {
+    play.addEventListener("click", function() {
     checkPlaying(song);
     });
 
     //select sound
     timeSelect.forEach(option => {
-      option.addEventListener('click', function(){
+      option.addEventListener('click', function() {
         fakeDuration = this.getAttribute('data-time');
         const minute = Math.floor(fakeDuration / 60);
         const second = Math.floor(fakeDuration % 60);
