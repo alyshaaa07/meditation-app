@@ -77,11 +77,11 @@ video {
 }
 
 .sound-picker button:nth-child(1) {
-  background: black;
+  background: #C6C4D1;
 }
 
 .sound-picker button:nth-child(2) {
-  background:white;
+  background: #BCD5EC;
 }
 
 .sound-picker button img {
